@@ -20,13 +20,14 @@ https://git.launchpad.net/~ubuntu-kernel/ubuntu/+source/linux/+git/focal/tree/fs
 
 Status:
 -------
+Tested on:
 
 Version: | OS:            | Status:
 ---      | ---            | ---
 1.0      | Debian Testing | Running
 
 
-###Changelog:
+### Changelog:
 
 See: [CHANGELOG](CHANGELOG)
 
@@ -34,9 +35,9 @@ See: [CHANGELOG](CHANGELOG)
 Howto:
 ------
 
-##### Requirements:
+#### Requirements:
  * dkms
- * kernel-headers (on debian for example: ######linux-headers-amd64)
+ * kernel-headers (on debian for example: linux-headers-amd64)
 
 #### 0. Check whether your kernel already includes shiftfs:
 
@@ -64,25 +65,19 @@ Howto:
 
        # make -f Makefile.dkms
 
- * Now you can check again, whether shiftfs is activated:
+ Now you can check again, whether shiftfs is activated:
 
        # modinfo shiftfs
 
- * To uninstall shiftfs, run:
+#### Uninstall/Remove and Upgrade:
+
+ * Uninstall the old version:
+
+   Run as root or with sudo:
 
        # ./remove1
-       
 
-Upgrade:
---------
-
-1. Uninstall the old version with:
-
-  Run as root or with sudo:
-
-      # ./remove1
-
-2. Repeat the Steps from "Howto".
+ * Repeat Step 2. and 3.
 
 
 Usecases:
