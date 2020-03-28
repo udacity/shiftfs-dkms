@@ -22,9 +22,9 @@ Status:
 -------
 Tested on:
 
-Version: | OS:            | Status:
----      | ---            | ---
-1.0      | Debian Testing | Running
+Version: | OS:            | Status:    | Date:
+---      | ---            | ---        | ---
+1.0      | Debian Testing | Runs/Works | 2020
 
 
 ### Changelog:
