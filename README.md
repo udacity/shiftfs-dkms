@@ -24,7 +24,7 @@ Tested on:
 
 Version: | OS:            | Status:    | Date:
 ---      | ---            | ---        | ---
-1.0      | Debian Testing | Runs/Works | 2020
+1.0      | Debian Testing | Runs/Works | March 2020
 
 
 ### Changelog:
