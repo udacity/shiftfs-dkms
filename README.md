@@ -105,7 +105,7 @@ Howto:
    
    Run as user (inside the scripts folder):
        
-       # git pull https://github.com/toby63/shiftfs-dkms.git master
+       # git pull origin master
  
  * Repeat Step 2. and 3.
 
