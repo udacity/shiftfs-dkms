@@ -18,14 +18,28 @@ https://discuss.linuxcontainers.org/t/trying-out-shiftfs/5155
 https://git.launchpad.net/~ubuntu-kernel/ubuntu/+source/linux/+git/focal/tree/fs/shiftfs.c
 
 
+Content:
+--------
+
+* [Status](#status)
+* [Changelog](#changelog)
+* [Howto](#howto)
+    * [Install](#install)
+    * [Uninstall/Remove](#uninstallremove)
+    * [Upgrade](#upgrade)
+* [Usecases](#usecases)
+* [Bugreports](#reporting-bugs)
+* [Credits](#credits)
+* [Copyright](#copyrightlicense)
+
 Status:
 -------
-Tested on:
 
 Version: | OS:            | Status:    | Date:
 ---      | ---            | ---        | ---
 1.0      | Debian Testing | Runs/Works | March 2020
 
+_Note: Should run on other Linux Distributions as well._
 
 ### Changelog:
 
@@ -34,6 +48,8 @@ See: [CHANGELOG](CHANGELOG)
 
 Howto:
 ------
+
+### Install:
 
 #### Requirements:
  * dkms
@@ -69,14 +85,28 @@ Howto:
 
        # modinfo shiftfs
 
-#### Uninstall/Remove and Upgrade:
+### Uninstall/Remove:  
 
- * Uninstall the old version:
+   Run as root or with sudo:
+
+       # ./remove1
+       
+### Upgrade:
+ 
+ * Uninstall/Remove the old version:
 
    Run as root or with sudo:
 
        # ./remove1
 
+ * (Optional) Update these scripts:
+   
+   _Note: See [Changelog](https://github.com/toby63/shiftfs-dkms/blob/master/CHANGELOG) whether an update is necessary._
+   
+   Run as user (inside the scripts folder):
+       
+       # git pull https://github.com/toby63/shiftfs-dkms.git master
+ 
  * Repeat Step 2. and 3.
 
 
