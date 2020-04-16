@@ -16,6 +16,20 @@ https://discuss.linuxcontainers.org/t/trying-out-shiftfs/5155
 
 * The shiftfs.c file included is from the Ubuntu Kernel repo (see also Credits):
 https://git.launchpad.net/~ubuntu-kernel/ubuntu/+source/linux/+git/focal/tree/fs/shiftfs.c
+   
+ 
+* **Important Note:**     
+shiftfs prevents the use of overlayfs inside a (lxd) container.   
+Docker for example uses overlayfs, so this can be a problem.   
+If you want to use overlayfs inside a container, you should not use shiftfs for now.   
+Exception: This seems to be fixed in the ubuntu kernel, see [Bugreport 1846272 at Ubuntu](https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1846272).       
+
+  See also:
+  - Section "Limitations" in first post of ["Trying out shiftfs" in the official forum of  LXD](https://discuss.linuxcontainers.org/t/trying-out-shiftfs/5155)
+  - [Bugreport 1846272 at Ubuntu](https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1846272) (including kernel patches to solve the problem)
+  - [Issue 2 of this repo](https://github.com/toby63/shiftfs-dkms/issues/2) 
+   
+
 
 
 Content:
