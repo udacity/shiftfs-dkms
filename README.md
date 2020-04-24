@@ -20,7 +20,7 @@ Content:
 About:
 ------
 
-This repo provides scripts to install shiftfs as a (linux-)kernel module via dkms.   
+This repo provides scripts to install (linux-)kernel module **shiftfs** via dkms.   
 
 _Note: shiftfs will maybe be included in the mainline kernel in the future.   
 At this point (to my knowledge) only ubuntu included it in their kernel (see also: [check whether shiftfs is already included](#0-check-whether-your-kernel-already-includes-shiftfs))._
