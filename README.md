@@ -167,6 +167,12 @@ Credits:
    * dkms.conf
    * Makefile
    * Makefile.dkms
+   
+* Special thanks to:
+   * Stéphane Graber @stgraber
+   * Christian Brauner @brauner   
+   
+  for the helpful advice.
 
 
 Copyright/License:
@@ -175,5 +181,3 @@ Copyright/License:
 General Public License, Version 2
 
 See: [LICENSE](LICENSE)
-
-
