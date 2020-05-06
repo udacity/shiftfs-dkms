@@ -10,8 +10,7 @@ all: install
 src_install:
 	mkdir -p '$(DKMS_DEST)'
 	cp Makefile shiftfs.c '$(DKMS_DEST)'
-	sed 's/#MODULE_VERSION#/$(modver)/' dkms.conf > '$(DKMS_DEST)/dkms.conf'
-	echo "$(modver)" >> installed-version.txt
+	sed 's/#MODULE_VERSION#/$(modver)/' dkms.conf > '$(DKMS_DEST)/dkms.conf'	
 
 build: src_install
 	$(DKMS) build -m shiftfs -v $(modver)
