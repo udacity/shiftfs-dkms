@@ -6,20 +6,44 @@
 
 dkms_remove () {
 dkms remove -m shiftfs -v $MODVERNOW --all
-rm installed-version.txt
 }
 
-version_check () {
-#read out installed version
-if [ -e installed-version.txt ]; then
-MODVERNOW=$(cat installed-version.txt)
+version_check3 () {
+read -p "Type in the version number of shiftfs (e.g. '1.0'):" num2
+MODVERNOW=${num2}
+dkms_remove
+}
+
+version_check2 () {
+if [ $VER1 != 0 ]; then
+echo ' '
+echo 'Installed shiftfs version:'
+echo $VER1
+echo ' '
+read -p "Type in the version number of shiftfs (e.g. '1.0'):" num1
+MODVERNOW=${num1}
 dkms_remove
 else
-echo '"installed-version.txt" is missing.'
-echo 'You can add it manually, but you need to know the right version number (e.g. "1.0").'
-echo 'Take a look at CHANGELOG or search for the shiftfs folder in "/usr/src/" .'
-echo 'The number in the folder name, e.g. "shiftfs-1.0", is the version number.'
+echo ' '
+echo 'The folder of shiftfs in "/usr/src" was not found.'
+echo 'You can try to search for it manually (e.g. in "/usr/src/"). '
+echo 'If you found it, note down the version number (e.g. "1.0").'
+echo ' '
+echo "If you can't find it, check if shiftfs is installed (modinfo shiftfs). "
+echo 'If it is installed, create an issue report (See: README.md) and skip the next question. '
+echo ' '
+read -p "Do you want to type in the version number manually? (yes or no):" anws1
+     if [ $anws1 = yes ]; then
+     version_check3
+     else 
+     exit
 fi
+fi
+}
+
+version_check1 () {
+VER1=$(ls /usr/src | grep shiftfs)
+version_check2
 }
 
 #####
@@ -32,14 +56,6 @@ USERNAME=$(whoami)
 if [ $USERNAME != root ]; then
 echo 'You need to run this script as root or with sudo.'  
 else 
-version_check   
+version_check1   
 exit    
 fi
-
-
-
-
-
-
-
-
