@@ -1,3 +1,8 @@
+Version 1.1 - 06 May 2020
+* reworked the file "remove1"
+* see commit efc49f3a38986acba8db55f947fccdef47474907
+* former version did not work as expected (because no installed-version file was created).
+
 Version 1.0 - 09 Mar 2020
 
 * Initial Release: adding shiftfs as a kernel module
