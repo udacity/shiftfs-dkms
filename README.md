@@ -4,7 +4,7 @@
 Content:
 --------
 * [About](#about)
-* [Important Note](#important-note)
+* [Limitations](#limitations)
 * [Status](#status)
 * [Changelog](#changelog)
 * [Howto](#howto)
@@ -39,10 +39,10 @@ https://git.launchpad.net/~ubuntu-kernel/ubuntu/+source/linux/+git/focal/tree/fs
 * [Credits/Authors of shiftfs](#credits)
    
  
-Important Note:
+Limitations:
 ---------------
 
-shiftfs can prevent the use of overlayfs **inside a container**.      
+* shiftfs can prevent the use of overlayfs **inside a container**.      
 A usecase for this is running Docker with the overlayfs-storage driver **inside a lxd container**.   
 Kernelpatches that solve this problem are available, but not included in the mainline kernel (and most distros kernels) (yet).   
 For **workarounds and more information** see:
@@ -140,8 +140,8 @@ Usecases:
 
 * LXD:
 
-  How to use shiftfs with LXD is described here:
-  https://discuss.linuxcontainers.org/t/trying-out-shiftfs/5155
+  How to use shiftfs with LXD is described in [my wiki](https://github.com/toby63/shiftfs-dkms/wiki/Use-shiftfs-in-LXD)     
+  and in the official Forum of LXD: ["Trying out shiftfs"](https://discuss.linuxcontainers.org/t/trying-out-shiftfs/5155).
 
 
 Reporting bugs:
