@@ -59,11 +59,19 @@ Repo: |
 ------- |
 active | 
 
+Working Versions:|    |     |    |
+---------------- | --- | --- | --- |
+|        | master | 1.1 | 1.0 | 
+
+**Tests:**   
+(Full tests)
 Version: | OS:            | Status:    | Date of last test:
 ---      | ---            | ---        | ---
 1.0      | Debian Testing | Runs/Works | March 2020
 
 _Note: Should run on other Linux Distributions as well._
+
+Consider writing a testreport :), see: [Testreports](https://github.com/toby63/shiftfs-dkms/issues/3).
 
 ### Changelog:
 
