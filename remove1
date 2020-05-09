@@ -1,6 +1,6 @@
 #!/bin/sh
 
-#delete old version of shiftfs with dkms
+#remove shiftfs with dkms
 
 #functions:
 
