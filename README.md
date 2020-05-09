@@ -59,12 +59,11 @@ Repo: |
 ------- |
 active | 
 
-Working Versions:|    |     |    |
----------------- | --- | --- | --- |
-|        | master | 1.1 | 1.0 | 
+Working Versions:|    |     | 
+---------------- | --- | --- | 
+|        | master | 1.1 |  
 
-**Tests:**   
-(Full tests)
+**Full Testreports:**   
 Version: | OS:            | Status:    | Date of last test:
 ---      | ---            | ---        | ---
 1.0      | Debian Testing | Runs/Works | March 2020
