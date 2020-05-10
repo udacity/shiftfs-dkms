@@ -63,14 +63,17 @@ Working Versions:|    |     |
 ---------------- | --- | --- | 
 |        | master | 1.1 |  
 
-**Full Testreports:**   
+<!--
+**Testreports:**   
 Version: | OS:            | Status:    | Date of last test:
 ---      | ---            | ---        | ---
-1.0      | Debian Testing | Runs/Works | March 2020
-
+         | Debian Testing | Runs/Works | 
+-->
+<!--
 _Note: Should run on other Linux Distributions as well._
+-->
 
-Consider writing a testreport :), see: [Testreports](https://github.com/toby63/shiftfs-dkms/issues/3).
+If you want to post a testreport, take a look at: [Testreports](https://github.com/toby63/shiftfs-dkms/issues/3).
 
 ### Changelog:
 
