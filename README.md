@@ -20,7 +20,7 @@ Content:
 About:
 ------
 
-This repo provides scripts to install (linux-)kernel module **shiftfs** via dkms.   
+This repo provides scripts to install the (linux-)kernel module **shiftfs** via dkms.   
 
 _Note: shiftfs will maybe be included in the mainline kernel in the future.   
 At this point (to my knowledge) only ubuntu included it in their kernel (see also: [check whether shiftfs is already included](#0-check-whether-your-kernel-already-includes-shiftfs))._
@@ -42,14 +42,18 @@ https://git.launchpad.net/~ubuntu-kernel/ubuntu/+source/linux/+git/focal/tree/fs
 Limitations:
 ---------------
 
-* shiftfs can prevent the use of overlayfs **inside a container**.      
+There is one known limitation:   
+shiftfs can prevent the use of overlayfs **inside a container**.      
 A usecase for this is running Docker with the overlayfs-storage driver **inside a lxd container**.   
-Kernelpatches that solve this problem are available, but not included in the mainline kernel (and most distros kernels) (yet).   
-For **workarounds and more information** see:
-  - [Issue 2 of this repo](https://github.com/toby63/shiftfs-dkms/issues/2#issuecomment-614688392) 
-  - [Bugreport 1846272 at Ubuntu](https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1846272) 
-  - [Ubuntu kernel commit](https://git.launchpad.net/~ubuntu-kernel/ubuntu/+source/linux/+git/focal/commit/fs/overlayfs?id=d24b8a547be1578cb5a200ad9ac57a258f0a9de1) (including kernel patches to solve the problem)
-  - Section "Limitations" in first post of ["Trying out shiftfs" in the official forum of  LXD](https://discuss.linuxcontainers.org/t/trying-out-shiftfs/5155)
+A Kernelpatch that solves this is available, but it's not included in the mainline kernel (yet).      
+To my knowledge only Ubuntu included it (see [solved bug report](https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1846272)).      
+
+For **workarounds and more information** see:   
+[Issue 2 of this repo](https://github.com/toby63/shiftfs-dkms/issues/2#issuecomment-614688392) 
+<!--  - [Bugreport 1846272 at Ubuntu](https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1846272)  -->
+  
+Source:   
+Section "Limitations" in first post of ["Trying out shiftfs" in the official forum of  LXD](https://discuss.linuxcontainers.org/t/trying-out-shiftfs/5155)
   
 
 Status:
