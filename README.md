@@ -42,7 +42,7 @@ https://git.launchpad.net/~ubuntu-kernel/ubuntu/+source/linux/+git/focal/tree/fs
 Limitations:
 ---------------
 
-* **Linux Kernel 5.8+ is not compatible:**   
+* **Linux Kernel(s) 5.8+ are not compatible (for now):**   
 See https://github.com/toby63/shiftfs-dkms/issues/4 for details.
 
 * **Regarding Overlayfs inside container:**   
@@ -51,12 +51,11 @@ A usecase for this is running Docker with the overlayfs-storage driver **inside 
 A Kernelpatch that solves this is available, but it's not included in the mainline kernel (yet).      
 To my knowledge only Ubuntu included it (see [solved bug report](https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1846272)).      
 
-For **workarounds and more information** see:   
+  For **workarounds and more information** see:   
 [Issue 2 of this repo](https://github.com/toby63/shiftfs-dkms/issues/2#issuecomment-614688392) 
 <!--  - [Bugreport 1846272 at Ubuntu](https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1846272)  -->
-  
-Source:   
-Section "Limitations" in first post of ["Trying out shiftfs" in the official forum of  LXD](https://discuss.linuxcontainers.org/t/trying-out-shiftfs/5155)
+<!--  Source:   
+  Section "Limitations" in first post of ["Trying out shiftfs" in the official forum of  LXD](https://discuss.linuxcontainers.org/t/trying-out-shiftfs/5155) -->
   
 
 Status:
