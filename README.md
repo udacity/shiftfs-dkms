@@ -99,7 +99,7 @@ Howto:
   
  With git:
 
-      # git clone https://github.com/toby63/shiftfs-dkms.git shiftfs-dkms
+      # git clone -b kernel-v5.8 https://github.com/toby63/shiftfs-dkms.git shiftfs-dkms
 
 
 #### 2. (Optional, but recommended) Update shiftfs.c:
