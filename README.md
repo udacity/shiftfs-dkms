@@ -20,6 +20,8 @@ Content:
 About:
 ------
 
+Note: This is a special branch/version for Linux Kernel 5.8+
+
 This repo provides scripts to install the (linux-)kernel module **shiftfs** via dkms.   
 
 _Note: shiftfs will maybe be included in the mainline kernel in the future.   
@@ -36,14 +38,11 @@ shiftfs was made by: See [Section Credits](#credits).
 https://discuss.linuxcontainers.org/t/trying-out-shiftfs/5155
 
 * The shiftfs.c file included is from the Ubuntu Kernel repo:
-https://git.launchpad.net/~ubuntu-kernel/ubuntu/+source/linux/+git/focal/tree/fs/shiftfs.c
+https://git.launchpad.net/~ubuntu-kernel/ubuntu/+source/linux/+git/groovy/tree/fs/shiftfs.c
 
  
 Limitations:
 ---------------
-
-* **Linux Kernel(s) 5.8+ are not compatible (for now):**   
-See https://github.com/toby63/shiftfs-dkms/issues/4 for details.
 
 * **Regarding Overlayfs inside container:**   
 shiftfs can prevent the use of overlayfs **inside a container**.      
@@ -72,7 +71,7 @@ master |
 
 Version: | OS:            | Kernelversion: | Status:    | Date of last test: |
 ---      | ---            | ---        | ---    | --- |
-master   | Arch Linux | 5.7.12-arch1-1 | Runs/Works | 15.08.2020 |
+master   | Arch Linux | 5.8.5-arch1-1 | Runs/Works | 03.09.2020 |
 
 
 If you want to post a testreport, take a look at: [Testreports Issue on Github](https://github.com/toby63/shiftfs-dkms/issues/3).

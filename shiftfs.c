@@ -20,6 +20,7 @@
 #include <linux/posix_acl.h>
 #include <linux/posix_acl_xattr.h>
 #include <linux/uio.h>
+#include <linux/fiemap.h>
 
 struct shiftfs_super_info {
 	struct vfsmount *mnt;
@@ -240,11 +241,11 @@ static int shiftfs_d_weak_revalidate(struct dentry *dentry, unsigned int flags)
 	int err = 1;
 	struct dentry *lowerd = dentry->d_fsdata;
 
-	if (lowerd->d_flags & DCACHE_OP_WEAK_REVALIDATE) {
+	if (d_is_negative(lowerd) != d_is_negative(dentry))
+		return 0;
+
+	if ((lowerd->d_flags & DCACHE_OP_WEAK_REVALIDATE))
 		err = lowerd->d_op->d_weak_revalidate(lowerd, flags);
-		if (err < 0)
-			return err;
-	}
 
 	if (d_really_is_positive(dentry)) {
 		struct inode *inode = d_inode(dentry);
@@ -261,19 +262,15 @@ static int shiftfs_d_revalidate(struct dentry *dentry, unsigned int flags)
 	int err = 1;
 	struct dentry *lowerd = dentry->d_fsdata;
 
+	if (d_unhashed(lowerd) ||
+	    ((d_is_negative(lowerd) != d_is_negative(dentry))))
+		return 0;
+
 	if (flags & LOOKUP_RCU)
 		return -ECHILD;
 
-	if (lowerd->d_flags & DCACHE_OP_REVALIDATE) {
+	if ((lowerd->d_flags & DCACHE_OP_REVALIDATE))
 		err = lowerd->d_op->d_revalidate(lowerd, flags);
-		if (err < 0)
-			return err;
-		if (!err) {
-			if (!(flags & LOOKUP_RCU))
-				d_invalidate(lowerd);
-			return -ESTALE;
-		}
-	}
 
 	if (d_really_is_positive(dentry)) {
 		struct inode *inode = d_inode(dentry);
@@ -736,6 +733,24 @@ static int shiftfs_fiemap(struct inode *inode,
 	return err;
 }
 
+static int shiftfs_tmpfile(struct inode *dir, struct dentry *dentry,
+			   umode_t mode)
+{
+	int err;
+	const struct cred *oldcred;
+	struct dentry *lowerd = dentry->d_fsdata;
+	struct inode *loweri = dir->i_private;
+
+	if (!loweri->i_op->tmpfile)
+		return -EOPNOTSUPP;
+
+	oldcred = shiftfs_override_creds(dir->i_sb);
+	err = loweri->i_op->tmpfile(loweri, lowerd, mode);
+	revert_creds(oldcred);
+
+	return err;
+}
+
 static int shiftfs_setattr(struct dentry *dentry, struct iattr *attr)
 {
 	struct dentry *lowerd = dentry->d_fsdata;
@@ -1002,6 +1017,7 @@ static const struct inode_operations shiftfs_file_inode_operations = {
 	.listxattr	= shiftfs_listxattr,
 	.permission	= shiftfs_permission,
 	.setattr	= shiftfs_setattr,
+	.tmpfile	= shiftfs_tmpfile,
 };
 
 static const struct inode_operations shiftfs_special_inode_operations = {

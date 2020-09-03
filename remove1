@@ -6,14 +6,22 @@
 
 dkms_remove () {
 dkms remove -m shiftfs -v $MODVERNOW --all
+echo ' '
+#delete /usr/src folder
+echo ' You can delete the shiftfs folders in "/usr/src", for example 
+"/usr/src/shiftfs-1.1" '
+#rm -r /usr/src/shiftfs-$MODVERNOW
 }
 
 version_check3 () {
-read -p "Type in the version number of shiftfs (e.g. '1.0'):" num2
+ls /usr/src/
+echo ' '
+read -p "Type in the most recent version number of shiftfs (e.g. '1.0'), you see above:" num2
 MODVERNOW=${num2}
 dkms_remove
 }
 
+#is not used now
 version_check2 () {
 if [ $VER1 != 0 ]; then
 echo ' '
@@ -41,6 +49,7 @@ fi
 fi
 }
 
+#is not used now
 version_check1 () {
 VER1=$(ls /usr/src | grep shiftfs)
 version_check2
@@ -56,6 +65,6 @@ USERNAME=$(whoami)
 if [ $USERNAME != root ]; then
 echo 'You need to run this script as root or with sudo.'  
 else 
-version_check1   
+version_check3   
 exit    
 fi
