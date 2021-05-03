@@ -19,6 +19,9 @@ Content:
 
 **Note:** This version is only compatible with Linux Kernel version 5.11 and newer.
 
+**Important:** For now this version does not seem to compile on Kernel versions 5.12 and newer (see [Bug Report](https://github.com/toby63/shiftfs-dkms/issues/8)).  
+I recommend to stay on 5.11 or lower.
+
 The **shiftfs.c** file is from the Ubuntu Hirsute kernel repo, see: [git link](https://git.launchpad.net/~ubuntu-kernel/ubuntu/+source/linux/+git/hirsute/tree/fs/shiftfs.c?h=master-next)
 
 For an overview and more information see [README.md in master branch](https://github.com/toby63/shiftfs-dkms/blob/master/README.md).
